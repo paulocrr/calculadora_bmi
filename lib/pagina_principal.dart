@@ -59,8 +59,8 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
             ),
             onPressed: () {
               setState(() {
-                final alturaEnMetros = alturaActual / 100;
-                indiceMasaCorporal = pesoActual / pow(alturaEnMetros, 2);
+                indiceMasaCorporal = _calcularIndiceMasaCorporal(
+                    altura: alturaActual, peso: pesoActual);
               });
             },
             child: Text(
@@ -72,5 +72,10 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
         ],
       ),
     );
+  }
+
+  double _calcularIndiceMasaCorporal({required int altura, required int peso}) {
+    final alturaEnMetros = alturaActual / 100;
+    return pesoActual / pow(alturaEnMetros, 2);
   }
 }
