@@ -1,4 +1,5 @@
 import 'package:calculadora_bmi/ui/selector_de_sexo.dart';
+import 'package:calculadora_bmi/ui/tarjeta_con_slider.dart';
 import 'package:flutter/material.dart';
 
 class PaginaPrincipal extends StatelessWidget {
@@ -16,7 +17,21 @@ class PaginaPrincipal extends StatelessWidget {
         ),
       ),
       body: Column(
-        children: [SelectorDeSexo()],
+        children: [
+          SelectorDeSexo(),
+          TarjetaConSlider(
+            titulo: 'Peso (KG)',
+            valorMinimo: 40,
+            valorMaximo: 200,
+            valorInicial: 200,
+          ),
+          TarjetaConSlider(
+            titulo: 'Altura (cm)',
+            valorMinimo: 110,
+            valorMaximo: 250,
+            valorInicial: 180,
+          ),
+        ],
       ),
     );
   }

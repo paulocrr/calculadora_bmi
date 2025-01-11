@@ -11,10 +11,7 @@ class SelectorDeSexo extends StatefulWidget {
 }
 
 class _SelectorDeSexoState extends State<SelectorDeSexo> {
-  void presionar(String texto) {
-    print('toco el widget' + texto);
-  }
-
+  var cualEstaSeleccionada = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,10 +19,22 @@ class _SelectorDeSexoState extends State<SelectorDeSexo> {
         TarjetaConImagen(
           rutaImagen: 'assets/images/male.png',
           etiqueta: 'Hombre',
+          estaSeleccionado: cualEstaSeleccionada == true,
+          click: () {
+            setState(() {
+              cualEstaSeleccionada = true;
+            });
+          },
         ),
         TarjetaConImagen(
           rutaImagen: 'assets/images/female.png',
           etiqueta: 'Mujer',
+          estaSeleccionado: cualEstaSeleccionada == false,
+          click: () {
+            setState(() {
+              cualEstaSeleccionada = false;
+            });
+          },
         ),
       ],
     );

@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class TarjetaConImagen extends StatelessWidget {
   final String rutaImagen;
   final String etiqueta;
+  final bool estaSeleccionado;
+  final void Function() click;
 
   const TarjetaConImagen({
     required this.rutaImagen,
+    required this.click,
     this.etiqueta = '',
+    this.estaSeleccionado = false,
     super.key,
   });
 
@@ -15,11 +19,11 @@ class TarjetaConImagen extends StatelessWidget {
     return Expanded(
       child: GestureDetector(
         onTap: () {
-          print('hola mundo');
+          click();
         },
         child: Card(
           elevation: 0,
-          color: Color(0xFF14193B),
+          color: estaSeleccionado ? Color(0xFFFF0067) : Color(0xFF14193B),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 32),
             child: Column(
