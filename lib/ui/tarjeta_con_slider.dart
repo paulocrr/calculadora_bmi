@@ -5,12 +5,14 @@ class TarjetaConSlider extends StatefulWidget {
   final int valorMinimo;
   final int valorMaximo;
   final int valorInicial;
+  final void Function(int) elSliderCambia;
 
   const TarjetaConSlider({
     required this.titulo,
     required this.valorMinimo,
     required this.valorMaximo,
     required this.valorInicial,
+    required this.elSliderCambia,
     super.key,
   });
 
@@ -54,9 +56,10 @@ class _TarjetaConSliderState extends State<TarjetaConSlider> {
             activeColor: Colors.white,
             value: valorActual,
             onChanged: (nuevoValor) {
+              print('esto se ejecuta primero 1');
               setState(() {
                 valorActual = nuevoValor;
-                print(valorActual);
+                widget.elSliderCambia(valorActual.toInt());
               });
             },
           ),
