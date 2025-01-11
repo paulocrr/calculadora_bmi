@@ -37,6 +37,10 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
             elSliderCambia: (peso) {
               print('esto se ejecuta despues');
               pesoActual = peso;
+              setState(() {
+                indiceMasaCorporal = _calcularIndiceMasaCorporal(
+                    altura: alturaActual, peso: pesoActual);
+              });
             },
           ),
           TarjetaConSlider(
@@ -47,6 +51,10 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
             elSliderCambia: (altura) {
               print('esto se ejecuta despues');
               alturaActual = altura;
+              setState(() {
+                indiceMasaCorporal = _calcularIndiceMasaCorporal(
+                    altura: alturaActual, peso: pesoActual);
+              });
             },
           ),
           ElevatedButton(
