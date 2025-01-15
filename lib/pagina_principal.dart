@@ -83,7 +83,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> {
   }
 
   double _calcularIndiceMasaCorporal({required int altura, required int peso}) {
-    final alturaEnMetros = alturaActual / 100;
-    return pesoActual / pow(alturaEnMetros, 2);
+    final alturaEnMetros = altura / 100;
+    return peso / pow(alturaEnMetros, 2);
   }
 }
